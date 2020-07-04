@@ -11,31 +11,49 @@ using namespace std;
 int main()
 {
 	// Set as CONSTANT for Random number generation
-	int const MIN_NUMBER = 1, MAX_NUMBER = 36;
-	int number;
-	int random;
+	const int MAX_NUMBER = 37;
+	int random_number;
 
-	double bet, winnings = 0;
+//	double bet, winnings = 0;
 
 	// Use arrays for player decision
-	char gametype[2];
-	char evenodd[2];
+	char gametype;
 
 	// Main Menu Screen
-	cout << "Welcome to ROULETTE\n\n";
-	cout << "How much would you like to bet?\n"; cin >> bet;
+	cout << "Bienvenido a ROULETTE++\n\n";
+	cout << "Seleccione una simple apuesta: par (p), impar (i), rojos (r), "
+		"negros (r), mayores(M), menores(m)" << endl;
+	cin >> gametype;
 
-	cout << "Would you like to bet on a specific number (N) or on odd/even (O)? "; cin >> gametype;
+	/* srand avoids to generate always the same number */
+	srand(time(nullptr));
+	for(int i = 0; i < 10000; i++) {
+		random_number = rand() ;
+		cout << random_number << endl;
+		if(!random_number%2) {
+			cout << "es par" << endl;
+		} else { 
+			cout << "es impar" << endl;
+		}
 
+		if(random_number >= 18) {
+			cout << "Es mayor" << endl;
+		} else {
+			cout << "Es menor" << endl;
+		}
+
+	}
+
+	/*
 	// User selects a specific number to place bet on
-	if(gametype == "n")
+	if(!gametype.compare("n"))
 	{
 		cout << "What number would you like to bet on? "; cin >> number;
 		if(number == 00)
 			number = 37;
 
 		srand(time(NULL));
-		random = rand() % (MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER;
+		random = rand() %MAX_NUMBER + 1;
 
 		cout << "The ball landed on " << random << "\n";
 
@@ -48,13 +66,13 @@ int main()
 		// Win
 		else
 		{
-			cout << "You win $" << 35*bet << endl;
+			cout << "You win $" << 35.0*bet << endl;
 			winnings += 35*bet;
 		}
 	}
 
 	// User selects even or odd
-	if(gametype == "o")
+	if(!gametype.compare("o"))
 	{
 
 		cout << "Would you like to bet on even (E) or odd (O)? "; cin >> evenodd;
@@ -64,34 +82,26 @@ int main()
 		cout << "The ball landed on " << random << endl;
 
 		// selects EVEN
-		if(evenodd == "E")
-		{
+		if(!evenodd.compare('E')) {
 			// even win
-			if(2*(random/2) == random)
-			{
+			if(random%2 == 0) {
 				cout << "You win $" << bet << endl;
 				winnings += bet;
 			}
 			// even lose
-			else
-			{
+			else {
 				cout << "You lose $" << bet << endl;
 				winnings -= bet;
 			}
 		}
 
 		// selects ODD
-		if(evenodd == "O")
-		{
+		if(evenodd.compare('O')){
 			// odd lose
-			if(2*(random/2) == random)
-			{
+			if(random%2 == 0) {
 				cout << "You lose $" << bet << endl;
 				winnings -= bet;
-			}
-			// odd win
-			else
-			{
+			} else {
 				cout << "You win $" << bet << endl;
 				winnings += bet;
 			}
@@ -100,4 +110,5 @@ int main()
 
 	// Final Results
 	cout << "You won a total of $" << winnings << "\n";
+	*/
 }

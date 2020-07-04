@@ -5,7 +5,7 @@ SIZE = size
 SRCDIR  = src
 OBJDIR = obj
 BINDIR = bin
-CFLAGS = -pipe -O2 -g
+CFLAGS = -pipe -O2 -g -Wall
 
 SRCCXX = $(wildcard $(SRCDIR)/*.cpp)
 OBJECTS += $(subst $(SRCDIR)/, $(OBJDIR)/, $(SRCCXX:.cpp=.o))

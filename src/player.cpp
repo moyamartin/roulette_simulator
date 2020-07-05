@@ -1,7 +1,6 @@
 #include <iostream>
 
-#include <player.hpp>
-
+#include "player.hpp"
 
 Player::Player(std::string player_name, simple_bets_t player_table_bet) :
 	 table_bet(player_table_bet), name(player_name), balance(0)

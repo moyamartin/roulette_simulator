@@ -1,6 +1,7 @@
-#include <roulette_bets.hpp>
 #include <iostream>
 #include <string>
+
+#include "roulette_bets.hpp"
 
 std::map<simple_bets_t, int> RouletteBets::simple_bets_result = {
 	{EVEN, 0},
@@ -58,9 +59,9 @@ void RouletteBets::printResult()
 	for(std::map<simple_bets_t, int>::iterator it = 
 			simple_bets_result.begin();
 			it != simple_bets_result.end(); it++) {
-		std::cout << printBet(it->first) << ": " << it->second << "\t";
+		std::cout << "\t" << printBet(it->first) << ": " << it->second << "\t";
 	}
-	std::cout<<"\n"<< std::endl;
+	std::cout<< "----------------------- " << std::endl;
 }
 
 std::string RouletteBets::printBet(simple_bets_t value)
@@ -72,7 +73,7 @@ std::string RouletteBets::printBet(simple_bets_t value)
 		case BLACK:	return "BLACK";
 		case MAJOR:	return "MAJOR";
 		case MINOR:	return "MINOR";
-		case VALUE:	return "VALUE";
+		case VALUE:	
 		default:	return "VALUE";
 	}
 }

@@ -1,6 +1,7 @@
 #include <iostream>
-#include <roulette.hpp>
-#include <roulette_bets.hpp>
+
+#include "roulette.hpp"
+#include "roulette_bets.hpp"
 
 Roulette::Roulette()
 {

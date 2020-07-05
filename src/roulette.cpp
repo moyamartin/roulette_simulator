@@ -1,5 +1,3 @@
-#include <iostream>
-
 #include "roulette.hpp"
 #include "roulette_bets.hpp"
 

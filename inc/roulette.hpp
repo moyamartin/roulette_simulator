@@ -1,9 +1,7 @@
 #ifndef ROULETTE_HPP
 #define ROULETTE_HPP
 
-#include <map>
 #include <random>
-#include <string>
 
 class Roulette 
 {

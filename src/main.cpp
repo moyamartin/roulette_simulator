@@ -1,114 +1,75 @@
-//----------------------------------------------------
-// Roulette in C++
-//----------------------------------------------------
 #include <iostream>
+#include <random>
 #include <string>
-#include <cstdlib>
-#include <ctime>
-
-using namespace std;
+#include <map>
 
 int main()
 {
-	// Set as CONSTANT for Random number generation
-	const int MAX_NUMBER = 37;
-	int random_number;
-
-//	double bet, winnings = 0;
+	//double bet, winnings = 0;
 
 	// Use arrays for player decision
 	char gametype;
+	std::map<std::string, int> roulette_result;
+
+	roulette_result["even"] = 0;
+	roulette_result["odd"] = 0;
+	roulette_result["red"] = 0;
+	roulette_result["black"] = 0;
+	roulette_result["major"] = 0;
+	roulette_result["minor"] = 0;
+	roulette_result["zero"] = 0;
+	roulette_result["value"] = 0;
 
 	// Main Menu Screen
-	cout << "Bienvenido a ROULETTE++\n\n";
-	cout << "Seleccione una simple apuesta: par (p), impar (i), rojos (r), "
-		"negros (r), mayores(M), menores(m)" << endl;
-	cin >> gametype;
+	std::cout << "Bienvenido a ROULETTE++\n\n";
+	std::cout << "Seleccione una simple apuesta: par (p), impar (i), rojos (r), "
+		"negros (r), mayores(M), menores(m)" << std::endl;
+	std::cin >> gametype;
+
+	/* Non-deterministic 32-bit seed
+	 * This will cause that everytime we run this program
+	 * It will give different results from our Roulette
+	 */
+	std::random_device rd; 
+	// Engine: [0, 2^32)   mt(1729) deterministic 32-bit seed
+	std::mt19937 mt(rd());
+	// Uniform distribution between 0 and 36, the max number a Roulette can
+	// output () -> [inclusive, inclusive]
+	std::uniform_int_distribution<int> dist(0, 36);
 
 	/* srand avoids to generate always the same number */
-	srand(time(nullptr));
+	//srand(time(nullptr));
 	for(int i = 0; i < 10000; i++) {
-		random_number = rand() ;
-		cout << random_number << endl;
-		if(!random_number%2) {
-			cout << "es par" << endl;
-		} else { 
-			cout << "es impar" << endl;
-		}
-
-		if(random_number >= 18) {
-			cout << "Es mayor" << endl;
+		int random_number = dist(mt);
+		roulette_result["value"] = random_number;
+		if(!random_number) {
+			roulette_result["zero"] = 1;
 		} else {
-			cout << "Es menor" << endl;
-		}
-
-	}
-
-	/*
-	// User selects a specific number to place bet on
-	if(!gametype.compare("n"))
-	{
-		cout << "What number would you like to bet on? "; cin >> number;
-		if(number == 00)
-			number = 37;
-
-		srand(time(NULL));
-		random = rand() %MAX_NUMBER + 1;
-
-		cout << "The ball landed on " << random << "\n";
-
-		// Lose
-		if(number != random)
-		{
-			cout << "You lose $" << bet << "\n";
-			winnings -= bet;
-		}
-		// Win
-		else
-		{
-			cout << "You win $" << 35.0*bet << endl;
-			winnings += 35*bet;
-		}
-	}
-
-	// User selects even or odd
-	if(!gametype.compare("o"))
-	{
-
-		cout << "Would you like to bet on even (E) or odd (O)? "; cin >> evenodd;
-
-		srand(time(NULL));
-		random = rand() % (MAX_NUMBER - MIN_NUMBER + 1) + MIN_NUMBER;
-		cout << "The ball landed on " << random << endl;
-
-		// selects EVEN
-		if(!evenodd.compare('E')) {
-			// even win
-			if(random%2 == 0) {
-				cout << "You win $" << bet << endl;
-				winnings += bet;
+			roulette_result["zero"] = 0;
+			roulette_result["even"] = (random_number%2 == 0) ? 1 : 0;
+			roulette_result["odd"] = !roulette_result["even"];
+			if(random_number < 19) {
+				roulette_result["minor"] = 1;
+				if(random_number <= 10) {
+					roulette_result["black"] = roulette_result["even"];
+				} else {
+					roulette_result["black"] = roulette_result["odd"];
+				}
+			} else { 
+				roulette_result["minor"] = 0;
+				if(random_number <= 28) {
+					roulette_result["black"] = roulette_result["even"];
+				} else {
+					roulette_result["black"] = roulette_result["odd"];
+				}
 			}
-			// even lose
-			else {
-				cout << "You lose $" << bet << endl;
-				winnings -= bet;
-			}
+			roulette_result["major"] = !roulette_result["minor"];
+			roulette_result["red"] = !roulette_result["black"];
 		}
-
-		// selects ODD
-		if(evenodd.compare('O')){
-			// odd lose
-			if(random%2 == 0) {
-				cout << "You lose $" << bet << endl;
-				winnings -= bet;
-			} else {
-				cout << "You win $" << bet << endl;
-				winnings += bet;
-			}
+		for(std::map<std::string,int>::iterator it = roulette_result.begin(); 
+				it != roulette_result.end(); ++it) {
+			std::cout << it->first << ": " << it->second << "\t";
 		}
+		std::cout << "\n" << std::endl;
 	}
-
-	// Final Results
-	cout << "You won a total of $" << winnings << "\n";
-	*/
 }

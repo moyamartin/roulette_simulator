@@ -1,12 +1,13 @@
-#include <player.hpp>
 #include <iostream>
 
-Player::Player(std::string player_name, simple_bets_t player_table_bet)
+#include <player.hpp>
+
+
+Player::Player(std::string player_name, simple_bets_t player_table_bet) :
+	 table_bet(player_table_bet), name(player_name), balance(0)
 {
-	table_bet = player_table_bet;
-	name = player_name;
+	resetBets();
 	updateCurrentBet();
-	balance = 0;
 }
 
 simple_bets_t Player::getTableBet()
@@ -21,7 +22,7 @@ void Player::resetBets()
 
 void Player::showStats()
 {
-	std::cout << name << " ------- STATS: ";
+	std::cout << "PLAYER " << name  << "\t STATS: ";
 	if(RouletteBets::getResult(table_bet)) {
 		std::cout << "WON" << std::endl;
 	} else { 
@@ -35,13 +36,14 @@ void Player::showStats()
 			++it) {
 		std::cout << *it << "\t";
 	}
-	std::cout << "\n" << "Balance: " << balance << std::endl;
+	std::cout << "Balance: " << balance << std::endl;
+	std::cout << "PLAYER ----------" << std::endl;
 }
 
 void Player::updateCurrentBet()
 {
 	current_bet = bets.front() + bets.back();
-	if(current_bet > 4000) { 
+	if(current_bet > MAX_BET) { 
 		resetBets();
 		updateCurrentBet();
 	}

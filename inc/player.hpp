@@ -3,7 +3,8 @@
 
 #include <list>
 #include <string>
-#include <roulette_bets.hpp>
+
+#include "roulette_bets.hpp"
 
 class Player
 {
@@ -20,8 +21,9 @@ private:
 
 	simple_bets_t table_bet;
 	std::string name;
-	std::list<int> bets = {1, 2, 3, 4};
+	std::list<int> bets;
 	int current_bet, balance;
+	static constexpr int MAX_BET = 4000;
 };
 
 #endif // PLAYER_HPP

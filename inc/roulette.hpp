@@ -10,7 +10,6 @@ public:
 	void roll();
 
 private:
-
 	/* 
 	 * Non-deterministic 32-bit seed
 	 * This will cause that everytime we run this program

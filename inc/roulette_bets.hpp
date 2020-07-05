@@ -16,7 +16,6 @@ public:
 
 private:
 	static std::map<simple_bets_t, int> simple_bets_result;
-
 };
 
 #endif // ROULETTE_BETS_HPP

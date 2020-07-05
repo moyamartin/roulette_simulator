@@ -1,5 +1,5 @@
-#ifndef ROULETTE_H
-#define ROULETTE_H
+#ifndef ROULETTE_HPP
+#define ROULETTE_HPP
 
 #include <map>
 #include <random>
@@ -7,16 +7,11 @@
 
 class Roulette 
 {
+public:
+	Roulette();
+	void roll();
+
 private:
-	std::map<std::string, int> roulette_result = {
-		{"even",	0},
-		{"odd",		0},
-		{"red",		0},
-		{"black",	0},
-		{"major",	0},
-		{"minor",	0},
-		{"value",	0}
-	};
 
 	/* 
 	 * Non-deterministic 32-bit seed
@@ -26,17 +21,6 @@ private:
 	std::random_device rd;
 	std::mt19937 gen;
 	std::uniform_int_distribution<int> rouletteGenerator;
-	
-	void printResult();
-	void resetResult();
-
-public:
-	Roulette();
-	~Roulette();
-
-	int getPlayerBetResult(std::string table_bet);
-
-	void roll(int debug);
 };
 
-#endif
+#endif // ROULETTE_HPP

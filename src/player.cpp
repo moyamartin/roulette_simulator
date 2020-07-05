@@ -1,19 +1,15 @@
 #include <player.hpp>
 #include <iostream>
 
-Player::Player(std::string name, std::string table_bet)
+Player::Player(std::string player_name, simple_bets_t player_table_bet)
 {
-	this->table_bet = table_bet;
-	this->name = name;
+	table_bet = player_table_bet;
+	name = player_name;
 	updateCurrentBet();
 	balance = 0;
 }
 
-Player::~Player()
-{
-}
-
-std::string Player::getTableBet()
+simple_bets_t Player::getTableBet()
 {
 	return table_bet;
 }
@@ -23,16 +19,17 @@ void Player::resetBets()
 	bets = {1, 2, 3, 4};
 }
 
-void Player::showStats(int win)
+void Player::showStats()
 {
 	std::cout << name << " ------- STATS: ";
-	if(win) {
+	if(RouletteBets::getResult(table_bet)) {
 		std::cout << "WON" << std::endl;
 	} else { 
 		std::cout << "LOST" << std::endl;
 	}
 	std::cout << "Current bet: " << current_bet << std::endl;
-	std::cout << "Table Bet: "  << table_bet << std::endl;
+	std::cout << "Table Bet: "  << RouletteBets::printBet(table_bet) 
+		<< std::endl;
 	std::cout << "Bets list: ";
 	for(std::list<int>::iterator it = bets.begin(); it != bets.end(); 
 			++it) {
@@ -55,9 +52,9 @@ int Player::getBalance()
 	return balance;
 }
 
-void Player::updateStats(int win)
+void Player::updateStats()
 {
-	if(win) {
+	if(RouletteBets::getResult(table_bet)) {
 		balance += current_bet;
 		bets.push_back(current_bet);
 	} else {
@@ -70,5 +67,5 @@ void Player::updateStats(int win)
 		}
 	}
 	updateCurrentBet();
-	showStats(win);
+	showStats();
 }

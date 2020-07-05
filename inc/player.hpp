@@ -1,30 +1,27 @@
-#ifndef PLAYER_H
-#define PLAYER_H
+#ifndef PLAYER_HPP
+#define PLAYER_HPP
 
 #include <list>
-#include <iterator>
 #include <string>
+#include <roulette_bets.hpp>
 
 class Player
 {
-private:
-	std::string name, table_bet;
-	std::list<int> bets = {1, 2, 3, 4};
-	int current_bet, balance;
+public:
+	Player(std::string name, simple_bets_t table_bet);
+	simple_bets_t getTableBet();
+	int getBalance();
+	void updateStats();
 
+private:
 	void updateCurrentBet();
 	void resetBets();
-	void showStats(int win);
+	void showStats();
 
-public:
-	/* ctor */
-	Player(std::string name, std::string table_bet);
-	/* dtor */
-	~Player();
-		
-	std::string getTableBet();
-	int getBalance();
-	void updateStats(int win);
+	simple_bets_t table_bet;
+	std::string name;
+	std::list<int> bets = {1, 2, 3, 4};
+	int current_bet, balance;
 };
 
-#endif
+#endif // PLAYER_HPP

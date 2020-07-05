@@ -9,21 +9,20 @@ int main()
 	Roulette *roulette = new Roulette();
 	int final_balance = 0;
 	std::array<Player*, 6> players = {
-		new Player("Player A", "red"),
-		new Player("Player B", "black"),
-		new Player("Player C", "major"),
-		new Player("Placer D", "minor"),
-		new Player("Player E", "even"),
-		new Player("Player F", "odd")
+		new Player("Player A", RED),
+		new Player("Player B", BLACK),
+		new Player("Player C", MAJOR),
+		new Player("Placer D", MINOR),
+		new Player("Player E", EVEN),
+		new Player("Player F", ODD)
 	};
 
 	for(int i = 0; i < 10; i++) {
 		final_balance = 0;
 		std::cout << "------------ ROLL NUMBER: " << i + 1 << std::endl;
-		roulette->roll(1);
+		roulette->roll();
 		for(Player *player : players) {
-			player->updateStats(roulette->getPlayerBetResult(
-						player->getTableBet()));
+			player->updateStats();
 			final_balance += player->getBalance();
 		}
 		std::cout << "------------ TOTAL BALANCE: " << final_balance << std::endl;

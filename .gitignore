@@ -2,3 +2,8 @@
 bin/
 obj/
 
+# Ignores vim files
+*~
+*.swp
+*.swo
+

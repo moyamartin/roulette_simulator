@@ -14,7 +14,7 @@ private:
 
 	void updateCurrentBet();
 	void resetBets();
-	void showStats();
+	void showStats(int win);
 
 public:
 	/* ctor */

@@ -23,9 +23,14 @@ void Player::resetBets()
 	bets = {1, 2, 3, 4};
 }
 
-void Player::showStats()
+void Player::showStats(int win)
 {
-	std::cout << name << " ------- STATS\n";
+	std::cout << name << " ------- STATS: ";
+	if(win) {
+		std::cout << "WON" << std::endl;
+	} else { 
+		std::cout << "LOST" << std::endl;
+	}
 	std::cout << "Current bet: " << current_bet << std::endl;
 	std::cout << "Table Bet: "  << table_bet << std::endl;
 	std::cout << "Bets list: ";
@@ -65,5 +70,5 @@ void Player::updateStats(int win)
 		}
 	}
 	updateCurrentBet();
-	showStats();
+	showStats(win);
 }

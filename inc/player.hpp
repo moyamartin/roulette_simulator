@@ -24,7 +24,7 @@ public:
 		
 	std::string getTableBet();
 	int getBalance();
-	void updateStats(int win, int debug);
+	void updateStats(int win);
 };
 
 #endif

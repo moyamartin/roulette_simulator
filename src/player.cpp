@@ -26,13 +26,14 @@ void Player::resetBets()
 void Player::showStats()
 {
 	std::cout << name << " ------- STATS\n";
-	std::cout << "Table Bet: "  << table_bet << "\n";
+	std::cout << "Current bet: " << current_bet << std::endl;
+	std::cout << "Table Bet: "  << table_bet << std::endl;
 	std::cout << "Bets list: ";
 	for(std::list<int>::iterator it = bets.begin(); it != bets.end(); 
 			++it) {
 		std::cout << *it << "\t";
 	}
-	std::cout << "\n" << "Balance: " << balance << "\n" << std::endl;
+	std::cout << "\n" << "Balance: " << balance << std::endl;
 }
 
 void Player::updateCurrentBet()
@@ -44,7 +45,12 @@ void Player::updateCurrentBet()
 	}
 }
 
-void Player::updateStats(int win, int debug)
+int Player::getBalance()
+{
+	return balance;
+}
+
+void Player::updateStats(int win)
 {
 	if(win) {
 		balance += current_bet;
@@ -59,7 +65,5 @@ void Player::updateStats(int win, int debug)
 		}
 	}
 	updateCurrentBet();
-	if(debug)
-		showStats();
-
+	showStats();
 }

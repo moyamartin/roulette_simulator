@@ -1,8 +1,6 @@
 #include <iostream>
 #include <roulette.hpp>
 
-
-
 Roulette::Roulette()
 {
 	gen = std::mt19937(rd());
@@ -29,6 +27,7 @@ void Roulette::resetResult()
 
 void Roulette::printResult()
 {
+	std::cout << "------- ROULETTE RESULT" << std::endl;
 	for(std::map<std::string, int>::iterator it = roulette_result.begin();
 			it != roulette_result.end(); it++) {
 		std::cout << it->first << ": " << it->second << "\t";
@@ -70,6 +69,5 @@ void Roulette::roll(int debug)
 		roulette_result["major"] = !roulette_result["minor"];
 		roulette_result["red"] = !roulette_result["black"];
 	}
-	if(debug)
 		printResult();
 }

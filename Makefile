@@ -26,6 +26,6 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 
 clean:
-	@rm -f $(OBJDIR)/*
-	@rm -f $(BINDIR)/*
+	@rm -rf $(OBJDIR)
+	@rm -rf $(BINDIR)
 

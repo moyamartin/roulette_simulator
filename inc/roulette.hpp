@@ -34,7 +34,9 @@ public:
 	Roulette();
 	~Roulette();
 
-	std::map<std::string, int> roll(int debug);
+	int getPlayerBetResult(std::string table_bet);
+
+	void roll(int debug);
 };
 
 #endif

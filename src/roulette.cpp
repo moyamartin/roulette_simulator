@@ -37,7 +37,12 @@ void Roulette::printResult()
 
 }
 
-std::map<std::string, int> Roulette::roll(int debug)
+int Roulette::getPlayerBetResult(std::string table_bet)
+{
+	return roulette_result[table_bet];
+}
+
+void Roulette::roll(int debug)
 {
 
 	int random_number = rouletteGenerator(gen);
@@ -67,5 +72,4 @@ std::map<std::string, int> Roulette::roll(int debug)
 	}
 	if(debug)
 		printResult();
-	return roulette_result;
 }

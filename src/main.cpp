@@ -1,10 +1,11 @@
 #include <iostream>
-#include <roulette.hpp>
-#include <player.hpp>
+
+#include "player.hpp"
+#include "roulette.hpp"
 
 int main()
 {
-	std::cout << "Bienvenido a ROULETTE++\n\n";
+	std::cout << "Welcome to ROULETTE++" << std::endl;
 
 	Roulette *roulette = new Roulette();
 	int final_balance = 0;
@@ -26,6 +27,5 @@ int main()
 			final_balance += player->getBalance();
 		}
 		std::cout << "------------ TOTAL BALANCE: " << final_balance << std::endl;
-		std::cout << "\n\n" << std::endl;
 	}
 }

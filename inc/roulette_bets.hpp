@@ -2,6 +2,7 @@
 #define ROULETTE_BETS_HPP
 
 #include <map>
+#include <string>
 
 enum simple_bets_t { EVEN, ODD, RED, BLACK, MAJOR, MINOR, VALUE };
 

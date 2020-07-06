@@ -6,6 +6,8 @@
 #include "player.hpp"
 #include "roulette.hpp"
 
+void printHelp();
+
 int main(int argc, char* argv[])
 {
 	constexpr  char LOG_FILE_NAME[] = "log.txt";
@@ -26,6 +28,10 @@ int main(int argc, char* argv[])
 		}
 		if(!strcmp(argv[i], "-f")) {
 			log_to_file = 1;
+		}
+		if(!strcmp(argv[i], "-h")) {
+			printHelp();
+			return 0;
 		}
 	}
 
@@ -71,4 +77,22 @@ int main(int argc, char* argv[])
 	}
 	
 	return 0;
+}
+
+void printHelp()
+{
+	std::cout << "Welcome to Roulette++ v1.01f00" << std::endl;
+	std::cout << "by Martin Moya - 2020" << std::endl;
+	std::cout << "Roulette++ is a casino roulette simulator which simulates"
+		"6 players on the same table with infinite money, making the same bet " 
+		"on every roll" << std::endl;
+	std::cout << "OPTIONS" << std::endl;
+	std::cout << " \t-v \t\t\tenables verbosity, show players and roulette logs"
+		<< std::endl;
+	std::cout << " \t-p <number_of_plays> \t" 
+		"sets the amount of plays to simulate. "
+		"If ommited the number of plays is 10000" << std::endl;
+	std::cout << "\t-t \t\t\tshows the execution time in microseconds [uS]" 
+		<< std::endl;
+	std::cout << "\t-f \t\t\tredirects output to log.txt file" << std::endl;
 }

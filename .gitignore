@@ -7,3 +7,6 @@ obj/
 *.swp
 *.swo
 
+#ignore .txt files
+*.txt
+

@@ -24,7 +24,7 @@ private:
 	std::string name;
 	std::list<int> bets;
 	int current_bet, balance, verbose;
-	static constexpr int MAX_BET = 4000;
+	static constexpr int MAX_BET = 4000, MIN_BET = 5;
 };
 
 #endif // PLAYER_HPP

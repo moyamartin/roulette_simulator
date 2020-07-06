@@ -8,7 +8,7 @@
 class RouletteBets 
 {
 public:
-	enum simple_bets_t { EVEN, ODD, RED, BLACK, MAJOR, MINOR, VALUE };
+	enum simple_bets_t { EVEN, ODD, RED, BLACK, HIGH, LOW, VALUE };
 	static void resetResult();
 	static void printResult();
 	static void setResult(int value);

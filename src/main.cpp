@@ -47,8 +47,8 @@ int main(int argc, char* argv[])
 	std::array<Player*, 6> players = {
 		new Player("Player A", RouletteBets::RED, verbose),
 		new Player("Player B", RouletteBets::BLACK, verbose),
-		new Player("Player C", RouletteBets::MAJOR, verbose),
-		new Player("Placer D", RouletteBets::MINOR, verbose),
+		new Player("Player C", RouletteBets::HIGH, verbose),
+		new Player("Placer D", RouletteBets::LOW, verbose),
 		new Player("Player E", RouletteBets::EVEN, verbose),
 		new Player("Player F", RouletteBets::ODD, verbose)
 	};

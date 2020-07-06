@@ -7,8 +7,8 @@ std::map<RouletteBets::simple_bets_t, int> RouletteBets::simple_bets_result = {
 	{ODD, -1},
 	{RED, -1},
 	{BLACK, -1},
-	{MAJOR, -1},
-	{MINOR, -1},
+	{HIGH, -1},
+	{LOW, -1},
 	{VALUE, -1}
 };
 
@@ -24,21 +24,21 @@ void RouletteBets::setResult(int random_number)
 		simple_bets_result[EVEN] = (random_number%2 == 0) ? 1 : 0;
 		simple_bets_result[ODD] = !simple_bets_result[EVEN];
 		if(random_number < 19) {
-			simple_bets_result[MINOR] = 1;
+			simple_bets_result[LOW] = 1;
 			if(random_number <= 10) {
 				simple_bets_result[BLACK] = simple_bets_result[EVEN];
 			} else {
 				simple_bets_result[BLACK] = simple_bets_result[ODD];
 			}
 		} else { 
-			simple_bets_result[MINOR] = 0;
+			simple_bets_result[LOW] = 0;
 			if(random_number <= 28) {
 				simple_bets_result[BLACK] = simple_bets_result[EVEN];
 			} else {
 				simple_bets_result[BLACK] = simple_bets_result[ODD];
 			}
 		}
-		simple_bets_result[MAJOR] = !simple_bets_result[MINOR];
+		simple_bets_result[HIGH] = !simple_bets_result[LOW];
 		simple_bets_result[RED] = !simple_bets_result[BLACK];
 	}
 }
@@ -70,8 +70,8 @@ std::string RouletteBets::printBet(simple_bets_t value)
 		case ODD:	return "ODD";
 		case RED:	return "RED";
 		case BLACK:	return "BLACK";
-		case MAJOR:	return "MAJOR";
-		case MINOR:	return "MINOR";
+		case HIGH:	return "HIGH";
+		case LOW:	return "LOW";
 		case VALUE:	
 		default:	return "VALUE";
 	}

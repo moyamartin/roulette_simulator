@@ -47,7 +47,7 @@ void Player::showStats()
 void Player::updateCurrentBet()
 {
 	current_bet = bets.front() + bets.back();
-	if(current_bet > MAX_BET) { 
+	if(current_bet > MAX_BET || current_bet < MIN_BET) { 
 		resetBets();
 		updateCurrentBet();
 	}

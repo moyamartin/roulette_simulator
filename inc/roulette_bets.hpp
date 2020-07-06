@@ -4,11 +4,11 @@
 #include <map>
 #include <string>
 
-enum simple_bets_t { EVEN, ODD, RED, BLACK, MAJOR, MINOR, VALUE };
 
 class RouletteBets 
 {
 public:
+	enum simple_bets_t { EVEN, ODD, RED, BLACK, MAJOR, MINOR, VALUE };
 	static void resetResult();
 	static void printResult();
 	static void setResult(int value);

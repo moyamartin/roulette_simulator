@@ -45,12 +45,12 @@ int main(int argc, char* argv[])
 
 	Roulette *roulette = new Roulette(verbose);
 	std::array<Player*, 6> players = {
-		new Player("Player A", RED, verbose),
-		new Player("Player B", BLACK, verbose),
-		new Player("Player C", MAJOR, verbose),
-		new Player("Placer D", MINOR, verbose),
-		new Player("Player E", EVEN, verbose),
-		new Player("Player F", ODD, verbose)
+		new Player("Player A", RouletteBets::RED, verbose),
+		new Player("Player B", RouletteBets::BLACK, verbose),
+		new Player("Player C", RouletteBets::MAJOR, verbose),
+		new Player("Placer D", RouletteBets::MINOR, verbose),
+		new Player("Player E", RouletteBets::EVEN, verbose),
+		new Player("Player F", RouletteBets::ODD, verbose)
 	};
 
 	auto t1 = std::chrono::high_resolution_clock::now();

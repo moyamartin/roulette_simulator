@@ -2,8 +2,8 @@
 
 #include "player.hpp"
 
-Player::Player(std::string player_name, simple_bets_t player_table_bet, 
-		int player_verbose) :
+Player::Player(std::string player_name, 
+		RouletteBets::simple_bets_t player_table_bet, int player_verbose) :
 	 table_bet(player_table_bet), name(player_name), balance(0), 
 	 verbose(player_verbose)
 {
@@ -13,7 +13,7 @@ Player::Player(std::string player_name, simple_bets_t player_table_bet,
 		showStats();
 }
 
-simple_bets_t Player::getTableBet()
+RouletteBets::simple_bets_t Player::getTableBet()
 {
 	return table_bet;
 }
@@ -72,7 +72,7 @@ void Player::updateStats()
 			resetBets();
 		}
 	}
-	updateCurrentBet();
 	if(verbose)
 		showStats();
+	updateCurrentBet();
 }

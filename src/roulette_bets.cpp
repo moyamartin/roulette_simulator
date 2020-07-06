@@ -2,7 +2,7 @@
 
 #include "roulette_bets.hpp"
 
-std::map<simple_bets_t, int> RouletteBets::simple_bets_result = {
+std::map<RouletteBets::simple_bets_t, int> RouletteBets::simple_bets_result = {
 	{EVEN, -1},
 	{ODD, -1},
 	{RED, -1},

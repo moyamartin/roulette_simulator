@@ -27,9 +27,9 @@ void Player::showStats()
 {
 	std::cout << "[PLAYER LOG] ---------- " << name  << " STATS" 
 		<< std::endl;
-	if(RouletteBets::getResult(table_bet)) {
+	if(RouletteBets::getResult(table_bet) == 1) {
 		std::cout << "WON" << std::endl;
-	} else { 
+	} else if(RouletteBets::getResult(table_bet) == 0) {
 		std::cout << "LOST" << std::endl;
 	}
 	std::cout << "Current bet: " << current_bet << std::endl;

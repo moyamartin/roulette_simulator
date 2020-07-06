@@ -3,13 +3,13 @@
 #include "roulette_bets.hpp"
 
 std::map<simple_bets_t, int> RouletteBets::simple_bets_result = {
-	{EVEN, 0},
-	{ODD, 0},
-	{RED, 0},
-	{BLACK, 0},
-	{MAJOR, 0},
-	{MINOR, 0},
-	{VALUE, 0}
+	{EVEN, -1},
+	{ODD, -1},
+	{RED, -1},
+	{BLACK, -1},
+	{MAJOR, -1},
+	{MINOR, -1},
+	{VALUE, -1}
 };
 
 int RouletteBets::getResult(simple_bets_t value)

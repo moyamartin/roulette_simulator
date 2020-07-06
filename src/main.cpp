@@ -1,3 +1,4 @@
+#include <chrono>
 #include <cstring>
 #include <iostream>
 
@@ -8,18 +9,22 @@ int main(int argc, char* argv[])
 {
 	std::cout << "Welcome to ROULETTE++" << std::endl;
 
-	time_t start, end, time_flag;
-	int verbose = 0, plays = 10000;
-	double time_taken;
+
+	int verbose = 0, plays = 10000, final_balance = 0, time_flag = 0;
+
 	for(int i = 0; i < argc; i++){
-		std::cout << argv[i] << std::endl;
-		verbose = (!strcmp(argv[i], "-v")) ? 1 : 0;
-		plays = (!strcmp(argv[i], "-p")) ? atoi(argv[i + 1]) : plays;
-		time_flag = (!strcmp(argv[i], "-t")) ? 1 : 0;
+		if(!strcmp(argv[i], "-v")){
+			verbose = 1;
+		}
+		if(!strcmp(argv[i], "-p")) {
+			plays = atoi(argv[i + 1]);
+		}
+		if(!strcmp(argv[i], "-t")) {
+			time_flag = 1;
+		}
 	}
 
 	Roulette *roulette = new Roulette(verbose);
-	int final_balance = 0;
 	std::array<Player*, 6> players = {
 		new Player("Player A", RED, verbose),
 		new Player("Player B", BLACK, verbose),
@@ -28,7 +33,8 @@ int main(int argc, char* argv[])
 		new Player("Player E", EVEN, verbose),
 		new Player("Player F", ODD, verbose)
 	};
-
+	
+	auto t1 = std::chrono::high_resolution_clock::now();
 	for(int i = 0; i < plays; i++) {
 		final_balance = 0;
 		std::cout << "------------ ROLL NUMBER: " << i + 1 << std::endl;
@@ -39,5 +45,11 @@ int main(int argc, char* argv[])
 		}
 		std::cout << "------------ TOTAL BALANCE: " << final_balance << std::endl;
 	}
+	auto t2 = std::chrono::high_resolution_clock::now();
 
+	auto duration = std::chrono::duration_cast<std::chrono::microseconds>
+		( t2 - t1 ).count();
+	if(time_flag)
+		std::cout << "Execution time: " << duration << " uS"<< std::endl;
+	return 0;
 }

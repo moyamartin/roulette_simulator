@@ -24,18 +24,18 @@ For testing purposes, the program is fixed with six players (Player A, Player B,
 
 ## Build and run
 ### Linux
-* Clone the repository, on a terminal enter
+* Clone the repository, on a terminal enter \
     `git clone https://github.com/moyamartin/roulette_simulator.git` 
-* Open a terminal, change to the directory where you cloned Roulette++, and type to build:
+* Open a terminal, change to the directory where you cloned Roulette++, and type to build: \
     `make`
-* The executable file is build in `$PWD/bin`, to execute type:
+* The executable file is build in `$PWD/bin`, to execute type: \
     `bin/roulette` 
     or 
     ```
     cd bin
     roulette
     ```
-**NOTE:** This software can be run with a few options, to list them type:
+**NOTE:** This software can be run with a few options, to list them type:\
 `roulette -h`
 
 ## Authors

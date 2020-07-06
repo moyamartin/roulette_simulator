@@ -39,4 +39,4 @@ For testing purposes, the program is fixed with six players (Player A, Player B,
 `roulette -h`
 
 ## Authors
-* **Martin Moya** - Initial work  Roulette Simulator
+* **Martin Moya** - Initial work

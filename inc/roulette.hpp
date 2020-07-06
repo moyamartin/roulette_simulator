@@ -6,7 +6,7 @@
 class Roulette 
 {
 public:
-	Roulette();
+	Roulette(int roulette_verbose);
 	void roll();
 
 private:
@@ -18,6 +18,7 @@ private:
 	std::random_device rd;
 	std::mt19937 gen;
 	std::uniform_int_distribution<int> rouletteGenerator;
+	int verbose;
 };
 
 #endif // ROULETTE_HPP

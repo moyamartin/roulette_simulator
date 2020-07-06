@@ -2,11 +2,15 @@
 
 #include "player.hpp"
 
-Player::Player(std::string player_name, simple_bets_t player_table_bet) :
-	 table_bet(player_table_bet), name(player_name), balance(0)
+Player::Player(std::string player_name, simple_bets_t player_table_bet, 
+		int player_verbose) :
+	 table_bet(player_table_bet), name(player_name), balance(0), 
+	 verbose(player_verbose)
 {
 	resetBets();
 	updateCurrentBet();
+	if(verbose)
+		showStats();
 }
 
 simple_bets_t Player::getTableBet()
@@ -21,7 +25,8 @@ void Player::resetBets()
 
 void Player::showStats()
 {
-	std::cout << "PLAYER " << name  << "\t STATS: ";
+	std::cout << "[PLAYER LOG] ---------- " << name  << " STATS" 
+		<< std::endl;
 	if(RouletteBets::getResult(table_bet)) {
 		std::cout << "WON" << std::endl;
 	} else { 
@@ -36,7 +41,7 @@ void Player::showStats()
 		std::cout << *it << "\t";
 	}
 	std::cout << "Balance: " << balance << std::endl;
-	std::cout << "PLAYER ----------" << std::endl;
+	std::cout << "[PLAYER LOG ENDS] ----------" << std::endl;
 }
 
 void Player::updateCurrentBet()
@@ -68,5 +73,6 @@ void Player::updateStats()
 		}
 	}
 	updateCurrentBet();
-	showStats();
+	if(verbose)
+		showStats();
 }

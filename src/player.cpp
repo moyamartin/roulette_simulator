@@ -98,5 +98,3 @@ void Player::updateStats()
 		showStats();
 	}
 }
-	updateCurrentBet();
-}

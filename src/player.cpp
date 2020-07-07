@@ -1,3 +1,13 @@
+/**********************************************************************
+*
+* @file		player.cpp
+* @brief	Contains the definition of class Player
+* @version	v1.01f00
+* @date		5. Jul. 2020
+* @author	Martin Moya
+*
+**********************************************************************/
+
 #include <iostream>
 
 #include "player.hpp"
@@ -46,7 +56,9 @@ void Player::showStats()
 
 void Player::updateCurrentBet()
 {
+	// Computes the new bet adding the front and the back of the bets list
 	current_bet = bets.front() + bets.back();
+	// If current bet exceeds Table's limits then reset the bets list
 	if(current_bet > MAX_BET || current_bet < MIN_BET) { 
 		resetBets();
 		updateCurrentBet();
@@ -60,18 +72,27 @@ int Player::getBalance()
 
 void Player::updateStats()
 {
+	// Check if user has won by checking the RouletteResults dictionary
 	if(RouletteBets::getResult(table_bet)) {
-		balance += current_bet;
-		bets.push_back(current_bet);
+		/* User Won */
+		// Increases the balance by the current_bet
+		balance += current_bet;			
+		// Pushes the current bet to the end of the list
+		bets.push_back(current_bet);	
 	} else {
+		/* User Lost */
+		// Decreases the balance by the current_bet
 		balance -= current_bet;
+		// Check if the bets list has elements to pop at the front and the back
 		if(bets.size() > 2){
 			bets.pop_front();
 			bets.pop_back();
 		} else {
+			// If list ran out of elements to pop, then reset it
 			resetBets();
 		}
 	}
+	// If verbose then show stats
 	if(verbose)
 		showStats();
 	updateCurrentBet();

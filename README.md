@@ -30,24 +30,22 @@ For testing purposes, the program is fixed with six players (Player A, Player B,
     `git clone https://github.com/moyamartin/roulette_simulator.git` 
 * Open a terminal, change to the directory where you cloned Roulette++ and to build type:<br>
     `make`<br>
-* The executable file is build in `$PWD/bin`, to execute type: <br>
-`bin/roulette` <br>
+* The executable file is build in `$PWD/bin`, to execute type (-p argument sets the nr of simulations: <br>
+`bin/roulette -p 100` <br>
 or <br>
 ```
 cd bin
-./roulette
+./roulette -p 100
 ```
 **NOTE:** This software can be run with a few options:
 
-| Option			| Descriptio							|
-|-------------------|:-------------------------------------:|
-| -h				| Shows available options				|
-| -v				| Enables verbose mode					|
-| -f				| Prints cout to file log.txt			|
-| -p [nr]			| Sets the number of cycles to simulate.| 
-|					| If ommited the number of cycles is set| 
-|					| to 10000								|
-| -t				| Measures the execution time			|
+| Option			| Descriptio																				|
+|-------------------|:-----------------------------------------------------------------------------------------:|
+| -h				| Shows available options																	|
+| -v				| Enables verbose mode																		|
+| -f				| Prints cout to file log.txt																|
+| -p [nr]			| Sets the number of cycles to simulate. If ommited the number of cycles is set to 10000	|
+| -t				| Measures the execution time																|
 
 
 ## Documentation

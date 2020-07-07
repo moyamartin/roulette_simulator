@@ -35,7 +35,7 @@ For testing purposes, the program is fixed with six players (Player A, Player B,
 or <br>
 ```
 cd bin
-roulette
+./roulette
 ```
 **NOTE:** This software can be run with a few options:
 

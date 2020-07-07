@@ -82,13 +82,16 @@ void RouletteBets::printResult()
 {
 	std::cout << "{" << std::endl;
 	std::cout << "'RouletteResult': {" << std::endl;
-	for(std::map<simple_bets_t, int>::iterator it = 
-			simple_bets_result.begin();
-			it != simple_bets_result.end(); it++) {
-		std::cout << "\t'" << printBet(it->first) << "': " << it->second 
-			<< "," << std::endl;
+	std::map<simple_bets_t, int>::iterator it = simple_bets_result.begin();
+	std::cout << "\t'" << printBet(it->first) 
+		<< "': "<< it->second;
+	for(std::map<simple_bets_t, int>::iterator itt = ++it; 
+			itt != simple_bets_result.end(); itt++) {
+		std::cout << "," << std::endl << "\t'"
+			<< printBet(itt->first) << "': " << itt->second;
 	}
-	std::cout << "\t}" << std::endl << "}" << std::endl;
+
+	std::cout << std::endl << "\t}" << std::endl << "}" << std::endl;
 }
 
 std::string RouletteBets::printBet(simple_bets_t value)

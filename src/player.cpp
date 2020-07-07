@@ -37,7 +37,7 @@ void Player::resetBets()
 void Player::showStats()
 {
 	std::cout << "{" << std::endl;
-	std::cout << "'Player': {" << std::endl;
+	std::cout << "'Player':" << std::endl;
 	std::cout << "\t{" << std::endl;
 	std::cout << "\t\t'name': '" << name << "'," << std::endl;
 	std::cout << "\t\t'status': ";
@@ -50,9 +50,10 @@ void Player::showStats()
 	std::cout << "\t\t'table_bet': "  << RouletteBets::printBet(table_bet) 
 		<< "," << std::endl;
 	std::cout << "\t\t'bets': [";
-	for(std::list<int>::iterator it = bets.begin(); it != bets.end(); 
-			++it) {
-		std::cout << *it << " ";
+	std::list<int>::iterator it = bets.begin();
+	std::cout << *it;
+	for(std::list<int>::iterator itt = ++it; itt != bets.end(); ++itt) {
+		std::cout << "," << *itt;
 	}
 	std::cout << "]," << std::endl;
 	std::cout << "\t\t'balance': " << balance << std::endl;

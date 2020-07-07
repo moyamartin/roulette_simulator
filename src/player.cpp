@@ -36,23 +36,28 @@ void Player::resetBets()
 
 void Player::showStats()
 {
-	std::cout << "[PLAYER LOG] ---------- " << name  << " STATS" 
-		<< std::endl;
+	std::cout << "{" << std::endl;
+	std::cout << "'Player': {" << std::endl;
+	std::cout << "\t{" << std::endl;
+	std::cout << "\t\t'name': '" << name << "'," << std::endl;
+	std::cout << "\t\t'status': ";
 	if(RouletteBets::getResult(table_bet) == 1) {
 		std::cout << "WON" << std::endl;
 	} else if(RouletteBets::getResult(table_bet) == 0) {
 		std::cout << "LOST" << std::endl;
 	}
-	std::cout << "Current bet: " << current_bet << std::endl;
-	std::cout << "Table Bet: "  << RouletteBets::printBet(table_bet) 
-		<< std::endl;
-	std::cout << "Bets list: ";
+	std::cout << "\t\t'current_bet': " << current_bet << "," << std::endl;
+	std::cout << "\t\t'table_bet': "  << RouletteBets::printBet(table_bet) 
+		<< "," << std::endl;
+	std::cout << "\t\t'bets': [";
 	for(std::list<int>::iterator it = bets.begin(); it != bets.end(); 
 			++it) {
-		std::cout << *it << "\t";
+		std::cout << *it << ", ";
 	}
-	std::cout << "Balance: " << balance << std::endl;
-	std::cout << "[PLAYER LOG ENDS] ----------" << std::endl;
+	std::cout << "]," << std::endl;
+	std::cout << "\t\t'balance': " << balance << std::endl;
+	std::cout << "\t}" << std::endl;
+	std::cout << "}" << std::endl;
 }
 
 void Player::updateCurrentBet()

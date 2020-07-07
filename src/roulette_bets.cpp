@@ -80,13 +80,15 @@ void RouletteBets::resetResult()
 
 void RouletteBets::printResult()
 {
-	std::cout << "[ROULETTE LOG] ------- RESULT" << std::endl;
+	std::cout << "{" << std::endl;
+	std::cout << "'RouletteResult': {" << std::endl;
 	for(std::map<simple_bets_t, int>::iterator it = 
 			simple_bets_result.begin();
 			it != simple_bets_result.end(); it++) {
-		std::cout << "\t" << printBet(it->first) << ": " << it->second << "\t";
+		std::cout << "\t'" << printBet(it->first) << "': " << it->second 
+			<< "," << std::endl;
 	}
-	std::cout << std::endl <<  "[ROULETTE LOG ENDS] --------------" << std::endl;
+	std::cout << "\t}" << std::endl << "}" << std::endl;
 }
 
 std::string RouletteBets::printBet(simple_bets_t value)

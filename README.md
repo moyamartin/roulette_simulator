@@ -34,7 +34,8 @@ or <br>
 ```
 cd bin
 roulette
-```<br>
+```
+<br>
 **NOTE:** This software can be run with a few options, to list them type:<br>
 `roulette -h`
 

@@ -44,7 +44,9 @@ cd bin
 | -h				| Shows available options				|
 | -v				| Enables verbose mode					|
 | -f				| Prints cout to file log.txt			|
-| -p [nr]			| Sets the number of cycles to simulate	|
+| -p [nr]			| Sets the number of cycles to simulate.| 
+|					| If ommited the number of cycles is set| 
+|					| to 10000								|
 | -t				| Measures the execution time			|
 
 

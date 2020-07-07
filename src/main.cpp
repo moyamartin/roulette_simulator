@@ -62,7 +62,7 @@ int main(int argc, char* argv[])
 		new Player("Player A", RouletteBets::RED, verbose),
 		new Player("Player B", RouletteBets::BLACK, verbose),
 		new Player("Player C", RouletteBets::HIGH, verbose),
-		new Player("Placer D", RouletteBets::LOW, verbose),
+		new Player("Player D", RouletteBets::LOW, verbose),
 		new Player("Player E", RouletteBets::EVEN, verbose),
 		new Player("Player F", RouletteBets::ODD, verbose)
 	};

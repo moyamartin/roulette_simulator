@@ -52,7 +52,7 @@ void Player::showStats()
 	std::cout << "\t\t'bets': [";
 	for(std::list<int>::iterator it = bets.begin(); it != bets.end(); 
 			++it) {
-		std::cout << *it << ", ";
+		std::cout << *it << " ";
 	}
 	std::cout << "]," << std::endl;
 	std::cout << "\t\t'balance': " << balance << std::endl;

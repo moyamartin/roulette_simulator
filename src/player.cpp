@@ -97,4 +97,5 @@ void Player::updateStats()
 	if(verbose){
 		showStats();
 	}
+	updateCurrentBet();
 }

@@ -16,19 +16,31 @@ int main(int argc, char* argv[])
 	std::streambuf *psbuf, *backup = std::cout.rdbuf();
 	std::ofstream logfile;
 
+	/* read the options passed to argv */
 	for(int i = 0; i < argc; i++){
+		// -v --> verbosity enabled
 		if(!strcmp(argv[i], "-v")){
 			verbose = 1;
 		}
+		// -p --> sets the number of cycles 
+		// if the value is invalid it exits the app indicating to set a valid
+		// number of cycles
 		if(!strcmp(argv[i], "-p")) {
 			plays = atoi(argv[i + 1]);
+			if(plays == 0) {
+				std::cout << "Set a valid number of cycles" << std::endl;
+				return 0;
+			}
 		}
+		// -t --> shows execution time
 		if(!strcmp(argv[i], "-t")) {
 			time_flag = 1;
 		}
+		// -f --> sends output to log.txt
 		if(!strcmp(argv[i], "-f")) {
 			log_to_file = 1;
 		}
+		// -h --> shows available options
 		if(!strcmp(argv[i], "-h")) {
 			printHelp();
 			return 0;
@@ -43,7 +55,9 @@ int main(int argc, char* argv[])
 
 	std::cout << "Welcome to ROULETTE++" << std::endl;
 
+	// Creates instace of Roulette
 	Roulette *roulette = new Roulette(verbose);
+	// Creates an array of 6 players
 	std::array<Player*, 6> players = {
 		new Player("Player A", RouletteBets::RED, verbose),
 		new Player("Player B", RouletteBets::BLACK, verbose),
@@ -54,14 +68,19 @@ int main(int argc, char* argv[])
 	};
 
 	auto t1 = std::chrono::high_resolution_clock::now();
+	// Rolls the Roulette 'plays' times
 	for(int i = 0; i < plays; i++) {
 		final_balance = 0;
 		std::cout << "------------ ROLL NUMBER: " << i + 1 << std::endl;
+		// Rolls the number
 		roulette->roll();
+		// Update each player
 		for(Player *player : players) {
 			player->updateStats();
+			// calculate the total balance
 			final_balance += player->getBalance();
 		}
+		// Finally shows the total balance at each iteration
 		std::cout << "------------ TOTAL BALANCE: " << final_balance << std::endl;
 	}
 	auto t2 = std::chrono::high_resolution_clock::now();

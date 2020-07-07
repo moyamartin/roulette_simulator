@@ -40,5 +40,9 @@ roulette
 **NOTE:** This software can be run with a few options, to list them type:<br>
 `roulette -h`
 
+## Documentation
+
+Doxygen documentation can be found [here!](https://moyamartin.github.io/roulette_simulator)
+
 ## Authors
 * **Martin Moya** - Initial work

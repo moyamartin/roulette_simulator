@@ -1,7 +1,7 @@
 #include <chrono>
 #include <cstring>
-#include <iostream>
 #include <fstream>
+#include <iostream>
 
 #include "player.hpp"
 #include "roulette.hpp"

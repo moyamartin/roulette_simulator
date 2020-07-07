@@ -22,6 +22,7 @@ void Roulette::roll()
 	int random_number = rouletteGenerator(engine);
 	RouletteBets::resetResult();
 	RouletteBets::setResult(random_number);	
-	if(verbose)
+	if(verbose){
 		RouletteBets::printResult();
+	}
 }

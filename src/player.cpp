@@ -19,8 +19,9 @@ Player::Player(std::string player_name,
 {
 	resetBets();
 	updateCurrentBet();
-	if(verbose)
+	if(verbose){
 		showStats();
+	}
 }
 
 RouletteBets::simple_bets_t Player::getTableBet()
@@ -93,7 +94,9 @@ void Player::updateStats()
 		}
 	}
 	// If verbose then show stats
-	if(verbose)
+	if(verbose){
 		showStats();
+	}
+}
 	updateCurrentBet();
 }

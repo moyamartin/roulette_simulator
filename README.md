@@ -40,11 +40,11 @@ roulette
 **NOTE:** This software can be run with a few options:
 
 | Option			| Descriptio							|
-| ------------- ----|:-------------------------------------:|
+|-------------------|:-------------------------------------:|
 | -h				| Shows available options				|
 | -v				| Enables verbose mode					|
 | -f				| Prints cout to file log.txt			|
-| -p [nr_cicles]	| Sets the number of cycles to simulate	|
+| -p [nr]			| Sets the number of cycles to simulate	|
 | -t				| Measures the execution time			|
 
 

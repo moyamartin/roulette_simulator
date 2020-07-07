@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 			log_to_file = 1;
 		}
 		// -h --> shows available options
-		if(!strcmp(argv[i], "-h")) {
+		if(!strcmp(argv[i], "-h") || argc == 1) {
 			printHelp();
 			return 0;
 		}

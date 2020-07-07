@@ -100,7 +100,7 @@ int main(int argc, char* argv[])
 
 void printHelp()
 {
-	std::cout << "Welcome to Roulette++ v1.01f00" << std::endl;
+	std::cout << "Welcome to ROULETTE++" << std::endl;
 	std::cout << "by Martin Moya - 2020" << std::endl;
 	std::cout << "Roulette++ is a casino roulette simulator which simulates"
 		"6 players on the same table with infinite money, making the same bet " 

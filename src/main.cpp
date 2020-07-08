@@ -47,6 +47,7 @@ int main(int argc, char* argv[])
 		}
 	}
 
+	// If log_to_file is 1, then it redirects cout to log.txt
 	if(log_to_file) {
 		logfile.open(LOG_FILE_NAME, std::ofstream::trunc);
 		psbuf = logfile.rdbuf();

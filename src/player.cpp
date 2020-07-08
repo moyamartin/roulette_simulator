@@ -64,7 +64,11 @@ void Player::showStats()
 void Player::updateCurrentBet()
 {
 	// Computes the new bet adding the front and the back of the bets list
-	current_bet = bets.front() + bets.back();
+	if(bets.size() > 1) {
+		current_bet = bets.front() + bets.back();
+	} else {
+		current_bet = bets.front();
+	}
 	// If current bet exceeds Table's limits then reset the bets list
 	if(current_bet > MAX_BET || current_bet < MIN_BET) { 
 		resetBets();

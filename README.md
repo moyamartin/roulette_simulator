@@ -30,7 +30,7 @@ For testing purposes, the program is fixed with six players (Player A, Player B,
     `git clone https://github.com/moyamartin/roulette_simulator.git` 
 * Open a terminal, change to the directory where you cloned Roulette++ and to build type:<br>
     `make`<br>
-* The executable file is build in `$PWD/bin`, to execute type (-p argument sets the nr of simulations: <br>
+* The executable file is build in `$PWD/bin`, to execute type (-p argument sets the nr of simulations): <br>
 `bin/roulette -p 100` <br>
 or <br>
 ```
@@ -39,7 +39,7 @@ cd bin
 ```
 **NOTE:** This software can be run with a few options:
 
-| Option			| Descriptio																				|
+| Option			| Description																				|
 |-------------------|:-----------------------------------------------------------------------------------------:|
 | -h				| Shows available options																	|
 | -v				| Enables verbose mode																		|
